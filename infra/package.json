@@ -1,0 +1,20 @@
+{
+  "name": "infra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-template": "cloudform ./template.ts > template.json",
+    "update-stack": "aws --profile=opt-rd --region=ap-northeast-1 cloudformation update-stack --template-body file://template.json  --stack-name=simenyan-stack2",
+    "create-stack": "aws --profile=opt-rd --region=ap-northeast-1 cloudformation create-stack --template-body file://template.json  --stack-name=simenyan-stack2",
+    "update": "npm run generate-template && npm run update-stack",
+    "create": "npm run generate-template && npm run create-stack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cloudform": "^1.0.4"
+  }
+}
